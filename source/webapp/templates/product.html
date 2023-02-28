@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Product
+{% endblock %}
+
+{% block content %}
+      <main role="main" class="inner cover">
+        <p class="lead">
+          <h2>{{ product.title }} |
+          <a href="{% url 'product_update' product.pk %}"><i class="bi bi-pencil-square"></i></a>
+          <a href="{% url 'product_delete' product.pk %}"><i class="bi bi-trash3-fill"></i></a>
+          </h2>
+          <table>
+              <tr>
+                  <td><img src="{{ product.image }}" class="card-img-top" alt="image"></td>
+                  <td>
+                    <h2>Category:
+                      {% for choice in choices %}
+                        {% if product.category == choice.0 %}
+                          {{ choice.1 }}
+                        {% endif %}
+                      {% endfor %}
+                    </h2>
+                    <h2>Rest: {{ product.rest }}</h2>
+                    <h2>Price: {{ product.price }} $</h2>
+                  </td>
+              </tr>
+          </table>
+          <h4>Description: {{ product.description | linebreaks }}</h4>
+        <hr>
+      </main>
+{% endblock %}

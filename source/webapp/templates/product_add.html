@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+New product add
+{% endblock %}
+
+{% block content %}
+      <main role="main" class="inner cover">
+        <p class="lead">
+            <form action="{% url 'product_add' %}" method="POST">
+                <div class="form">
+                  {% include 'partial/product_form.html' with button_text='Create' %}
+                </div>
+            </form>
+      </main>
+      <footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Kurentaev Adlet <a href="/">Contacts</a></p>
+        </div>
+      </footer>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="" method="get">
+        {% include "partial/product_form.html" with button_text="Find" %}
+    </form>
+    <hr>
+      <main role="main" class="inner cover">
+        <p class="lead">
+            {% for product in products %}
+            <table>
+              <tr>
+                <td><img src="{{ product.image }}" class="card-img-top" alt="image"></td>
+                <td>
+                  <h2><a class="detail" href="{% url 'product_detail' product.pk %}">{{ product.title }}</a></h2>
+                  <h2>Категория:
+                    {% for choice in choices %}
+                      {% if product.category == choice.0 %}
+                        {{ choice.1 }}
+                      {% endif %}
+                    {% endfor %}
+                  </h2>
+                  <h2>Цена: {{ product.price }} $</h2>
+                </td>
+              </tr>
+            </table>
+            <hr>
+            {% endfor %}
+        </p>
+      </main>
+<footer class="mastfoot mt-auto">
+        <div class="inner">
+          <p>Timur Shakirov <a href="#">con</a></p>
+        </div>
+      </footer>
+{% endblock %}
