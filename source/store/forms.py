@@ -8,7 +8,7 @@ class ProductsListForm(forms.Form):
     description = forms.CharField(max_length=3000,
                                   required=False,
                                   label='Description',
-                                  widget=widgets.Textarea(attrs={"cols": 50, "rows": 5}))
+                                  # widget=widgets.Textarea(attrs={"cols": 50, "rows": 5}))
     image = forms.CharField(
         max_length=1000,
         required=True,

@@ -3,11 +3,8 @@ from django.db.models import TextChoices
 
 
 class StatusChoices(TextChoices):
-    OTHER = 'other', 'Other'
-    JACKETS = 'jackets', 'Jackets'
-    SHOES = 'shoes', 'Shoes'
-    JEANS = 'jeans', 'Jeans'
-    SHIRTS = 'shirts', 'Shirts'
+    FOOD = 'food', 'Food'
+    NONFOOD = 'nonfood', 'Nonfood'
 
 
 class Product(models.Model):
